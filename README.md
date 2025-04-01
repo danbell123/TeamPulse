@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🟢 TeamPulse – Employee Feedback Dashboard
 
-## Getting Started
+TeamPulse is a full-stack web application that enables employees to submit feedback through surveys, and empowers employers to visualize and analyze that feedback with dynamic data grids and interactive charts.
 
-First, run the development server:
+Built using **Next.js (App Router)**, **NextAuth**, **SurveyJS**, **AG Grid**, **AG Charts**, and **PostgreSQL**, the app offers a seamless experience for both employees and employers, with role-based access control.
+
+## 🚀 Features
+
+### 🎯 Core Functionality
+
+- ✅ Role-based login for **employees** and **employers**
+- ✅ Feedback survey powered by **SurveyJS**
+- ✅ Dynamic, filterable feedback table using **AG Grid**
+- ✅ Insightful data visualizations using **AG Charts**
+- ✅ RESTful API built with **Next.js App Router**
+- ✅ PostgreSQL backend hosted on Azure
+
+### 🔍 Drill-Down Capabilities
+
+- Filter feedback by **department**
+- Drill into **individual submissions** or employees
+- Analyze trends in satisfaction, workload, and manager rating over time
+
+## 🛠️ Tech Stack
+
+| Layer           | Tech                             |
+|----------------|----------------------------------|
+| Frontend       | Next.js (App Router) + TypeScript |
+| Auth           | NextAuth.js                      |
+| Survey System  | SurveyJS                         |
+| Data Grid      | AG Grid                          |
+| Charts         | AG Charts                        |
+| Backend API    | Next.js API routes (App Router)  |
+| Database       | PostgreSQL (hosted on Azure)     |
+| Hosting        | Azure App Services               |
+
+## 📁 Folder Structure (Draft)
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+team-pulse-app/
+├── app/
+│   ├── api/
+│   │   ├── auth/
+│   │   │   └── [...nextauth]/route.ts        # NextAuth handler
+│   │   ├── feedback/
+│   │   │   └── route.ts                      # POST & GET feedback
+│   │   └── stats/
+│   │       ├── overview/route.ts             # Dept-level stats
+│   │       ├── department/route.ts           # Drill-down by department
+│   │       └── user/route.ts                 # Drill-down by user
+│   ├── dashboard/
+│   │   ├── layout.tsx                        # Dashboard layout with tabs
+│   │   ├── page.tsx                          # Role-based redirect
+│   │   ├── submit-feedback/
+│   │   │   └── page.tsx                      # SurveyJS form (employee only)
+│   │   ├── feedback-table/
+│   │   │   └── page.tsx                      # AG Grid (employer only)
+│   │   └── insights/
+│   │       └── page.tsx                      # AG Charts (employer only)
+│
+├── components/
+│   ├── SurveyForm.tsx                        # SurveyJS wrapper
+│   ├── FeedbackGrid.tsx                      # AG Grid component
+│   ├── InsightsCharts.tsx                    # AG Charts component
+│   └── DashboardTabs.tsx                     # Role-aware dashboard tab navigation
+│
+├── lib/
+│   ├── db.ts                                 # PostgreSQL connection
+│   ├── feedback.ts                           # Feedback DB utilities
+│   └── auth.ts                               # Session and role helpers
+│
+├── types/
+│   └── index.ts                              # Global TypeScript types
+│
+├── middleware.ts                             # Route protection (role-based)
+├── styles/
+│   └── globals.css                           # App-wide styles
+├── public/                                   # Static assets
+├── .env.local                                # Environment variables
+├── README.md
+├── next.config.js
+├── tsconfig.json
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
