@@ -37,7 +37,7 @@ export default function DepartmentPage() {
     <div className="p-6 text-white min-h-screen bg-black space-y-6">
       <h1 className="text-3xl font-bold capitalize">YourCompany {department} Department Overview</h1>
 
-      <button className="bg-blue-700 hover:underline p-2" onClick={() => router.push('/dashboard')}>Back to Dashboard</button>
+      <button className="bg-blue-700 hover:underline p-2 rounded" onClick={() => router.push('/dashboard')}>Back to Dashboard</button>
 
       <div className='flex flex-row gap-4'>
         <div>
