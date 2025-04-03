@@ -9,19 +9,36 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.1.2",
+    "@supabase/ssr": "^0.6.1",
+    "@supabase/supabase-js": "^2.49.4",
+    "ag-charts-community": "^11.2.1",
+    "ag-charts-react": "^11.2.1",
+    "ag-grid-community": "^33.2.1",
+    "ag-grid-react": "^33.2.1",
+    "bcryptjs": "^3.0.2",
+    "dayjs": "^1.11.13",
+    "mssql": "^11.0.1",
+    "next": "15.2.4",
+    "next-auth": "^4.24.11",
+    "pg": "^8.14.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.2.4"
+    "survey-core": "^2.0.2",
+    "survey-creator-react": "^2.0.2",
+    "survey-react-ui": "^2.0.2"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/mssql": "^9.1.7",
     "@types/node": "^20",
+    "@types/pg": "^8.11.11",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
