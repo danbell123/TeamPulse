@@ -5,7 +5,7 @@ export const dynamic = 'force-dynamic';
 
 export async function GET(
   req: NextRequest,
-  context: { params: { department: string } }
+  context: any  //Any for now - TODO: to be replaced with a more specific type further down the line
 ) {
   const { department } = context.params;
   const timeframe = req.nextUrl.searchParams.get('timeframe'); 
