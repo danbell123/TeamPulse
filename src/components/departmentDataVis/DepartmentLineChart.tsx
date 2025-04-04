@@ -19,10 +19,11 @@ type Props = {
 
 export default function DepartmentLineChart({ department, timeframe = '6m' }: Props) {
   const [data, setData] = useState<FeedbackEntry[]>([]);
-
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       const res = await fetch(`/api/stats/department/${department}/timeline?timeframe=${timeframe}`);
       const rawData: FeedbackEntry[] = await res.json();
   
@@ -33,6 +34,7 @@ export default function DepartmentLineChart({ department, timeframe = '6m' }: Pr
       }));
   
       setData(dataWithDateObjects);
+      setLoading(false);
       console.log('Fetched data:', dataWithDateObjects);
     };
   
@@ -91,6 +93,10 @@ export default function DepartmentLineChart({ department, timeframe = '6m' }: Pr
     legend: { position: 'bottom', },
   };
 
+  if (loading) {
+    return <div className="text-white">Loading...</div>;
+  }
+  
   return (
       <AgCharts options={chartOptions} style={{height: 500}} />
   );
