@@ -5,9 +5,9 @@ export const dynamic = 'force-dynamic';
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { department: string } }
+  context: { params: { department: string } }
 ) {
-  const department = params.department;
+  const { department } = context.params;
   const timeframe = req.nextUrl.searchParams.get('timeframe'); 
 
   if (!department) {
