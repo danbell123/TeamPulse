@@ -1,7 +1,13 @@
-'use client';
+import dynamic from 'next/dynamic';
 
-import SurveyComponent from "@/components/Survey";
+const SurveyComponent = dynamic(() => import('@/components/Survey'), {
+  ssr: false, // prevents Next.js from trying to render on the server
+});
 
 export default function Page() {
-    return <SurveyComponent />
+  return (
+    <div>
+      <SurveyComponent />
+    </div>
+  );
 }
